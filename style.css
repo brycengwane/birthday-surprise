@@ -1,0 +1,355 @@
+/*==================================
+  General Styles and Fonts
+==================================*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+body {
+    background-color: #333;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    font-size: 3em;
+    letter-spacing: 2px;
+    color: #AD030F;
+    text-shadow: 0 2px 8px #f0e4d0;
+    animation: bounce-h1 2s infinite;
+}
+
+/*==================================
+  Book and Page Layout
+==================================*/
+.book-container {
+    width: 90%;
+    max-width: 900px;
+    height: 800px;
+    border-radius: 20px;
+    background-color: #f0e4d0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: perspective(2000px) rotateY(-10deg);
+    transition: transform 0.8s ease-in-out;
+    display: flex;
+    overflow: hidden;
+}
+
+@media (max-width: 640px) {
+    .book-container {
+        flex-direction: column;
+        height: auto;
+        transform: none;
+    }
+}
+
+.book-page {
+    width: 50%;
+    height: 100%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+@media (max-width: 640px) {
+    .book-page {
+        width: 100%;
+        min-height: 400px;
+    }
+}
+
+.left-page {
+    background-color: #f8f8f8;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.right-page {
+    background-color: #fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*==================================
+  Cake, Candles, and Animations
+==================================*/
+.cake-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.cake {
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    bottom: 0;
+}
+
+.plate {
+    width: 270px;
+    height: 110px;
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    box-shadow: 0 2px 0 #b3b3b3, 0 4px 0 #b3b3b3, 0 5px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cake > * {
+    position: absolute;
+}
+
+.layer {
+    position: absolute;
+    display: block;
+    width: 250px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #553c13;
+    box-shadow: 0 2px 0px #6a4b18, 0 4px 0px #33240b, 0 6px 0px #32230b, 0 8px 0px #31230b, 0 10px 0px #30220b, 0 12px 0px #2f220b, 0 14px 0px #2f210a, 0 16px 0px #2e200a, 0 18px 0px #2d200a, 0 20px 0px #2c1f0a, 0 22px 0px #2b1f0a, 0 24px 0px #2a1e09, 0 26px 0px #2a1d09, 0 28px 0px #291d09, 0 30px 0px #281c09;
+}
+
+.layer-top {
+    top: 0px;
+}
+
+.layer-middle {
+    top: 33px;
+}
+
+.layer-bottom {
+    top: 66px;
+}
+
+.icing {
+    top: 2px;
+    left: 5px;
+    background-color: #f0e4d0;
+    width: 240px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.icing:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    bottom: 6px;
+    left: 5px;
+    background-color: #f4ebdc;
+    box-shadow: 0 0 4px #f6efe3, 0 0 4px #f6efe3, 0 0 4px #f6efe3;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.drip {
+    display: block;
+    background-color: #f0e4d0;
+    position: absolute;
+}
+
+.drip1 {
+    top: 53px;
+    left: 5px;
+    transform: skewY(15deg);
+    height: 48px;
+    width: 40px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.drip2 {
+    top: 69px;
+    left: 181px;
+    transform: skewY(-15deg);
+    width: 50px;
+    height: 60px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.drip3 {
+    top: 54px;
+    left: 90px;
+    width: 80px;
+    height: 60px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.candle {
+    position: absolute;
+    background-color: #7B020B;
+    width: 12px;
+    height: 35px;
+    border-radius: 6px / 3px;
+    top: -20px;
+    z-index: 10;
+    transition: transform 0.3s ease-in-out;
+}
+
+.candle:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ad030f;
+}
+
+.candle.out {
+    transform: scaleY(0.5);
+    opacity: 0.5;
+}
+
+.candle.out .flame {
+    display: none;
+}
+
+.flame {
+    position: absolute;
+    background-color: orange;
+    width: 10px;
+    height: 25px;
+    border-radius: 8px 8px 8px 8px / 20px 20px 8px 8px;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+    transform-origin: 50% 90%;
+    animation: flicker 1s ease-in-out alternate infinite;
+}
+
+/*==================================
+  Balloon Styles
+==================================*/
+.balloon {
+    position: absolute;
+    width: 48px;
+    height: 64px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 2;
+    animation: balloon-float 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.balloon-pink {
+    background: linear-gradient(135deg, #ffb6c1 60%, #ff69b4 100%);
+    top: 60px;
+    left: 60px;
+}
+
+.balloon-blue {
+    background: linear-gradient(135deg, #aeefff 60%, #2196f3 100%);
+    top: 120px;
+    right: 80px;
+}
+
+.balloon-yellow {
+    background: linear-gradient(135deg, #fff9c4 60%, #ffe600 100%);
+    bottom: 80px;
+    left: 120px;
+}
+
+.balloon::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    width: 2px;
+    height: 30px;
+    background: #aaa;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+/*==================================
+  Misc. Components
+==================================*/
+.candle-count-display {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    color: #6A4B18;
+    background-color: #F0E4D0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #553C13;
+}
+
+.candle-count-display span {
+    font-weight: bold;
+    color: #AD030F;
+}
+
+/*==================================
+  Keyframe Animations
+==================================*/
+@keyframes bounce-h1 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    20%, 50%, 80% {
+        transform: translateY(-30px);
+    }
+    40%, 70% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes flicker {
+    0% {
+        transform: skewX(5deg);
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
+    }
+    25% {
+        transform: skewX(-5deg);
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+    }
+    50% {
+        transform: skewX(10deg);
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
+    }
+    75% {
+        transform: skewX(-10deg);
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
+    }
+    100% {
+        transform: skewX(5deg);
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+    }
+}
+
+@keyframes balloon-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
